@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=db
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+  node3001:
+    depends_on:
+      - mysqldb
+    build: ./node3001
+    restart: unless-stopped
+    ports:
+      - 3001:3001
+  node3002:
+    depends_on:
+      - mysqldb
+    build: ./node3002
+    restart: unless-stopped
+    ports:
+      - 3002:3002
+  node3003:
+    depends_on:
+      - mysqldb
+    build: ./node3003
+    restart: unless-stopped
+    ports:
+      - 3003:3003
+  node3004:
+    depends_on:
+      - mysqldb
+    build: ./node3004
+    restart: unless-stopped
+    ports:
+      - 3004:3004
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 8080:80
+volumes: 
+  db:
