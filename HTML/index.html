@@ -1,4 +1,5 @@
-<!DOCTYPE html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +10,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <style>
+        body {
+            overflow: hidden;
+        }
+
         #imagem-lateral {
             height: 100vh;
             object-fit: cover;
+            max-height: 100%;
+        }
+
+        .formulario {
+            min-height: calc(100vh - 56px);
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -19,68 +30,71 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <img src="img/download.png" class="img-fluid" alt="Responsive image" id="imagem-lateral">
+            <div class="col-md-6 p-0">
+                <img src="https://picsum.photos/id/237/800/800" class="img-fluid" alt="Responsive image"
+                    id="imagem-lateral">
             </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center formulario">
                 <form>
                     <h2>Formulário de Cadastro</h2>
                     <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" class="form-control" id="nome">
+                        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
                     </div>
                     <div class="form-group">
-                        <label for="telefone">Telefone:</label>
-                        <input type="tel" class="form-control" id="telefone">
+                        <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="cep">CEP:</label>
-                        <input type="text" class="form-control" id="cep">
+                        <input type="text" class="form-control" id="cep" placeholder="CEP">
                     </div>
                     <div class="form-group">
-                        <label for="logradouro">Logradouro:</label>
-                        <input type="text" class="form-control" id="logradouro">
+                        <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
                     </div>
                     <div class="form-group">
-                        <label for="numero">Número:</label>
-                        <input type="text" class="form-control" id="numero">
+                        <input type="text" class="form-control" id="numero" placeholder="Número">
                     </div>
                     <div class="form-group">
-                        <label for="complemento">Complemento:</label>
-                        <input type="text" class="form-control" id="complemento">
+                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
                     </div>
                     <div class="form-group">
-                        <label for="bairro">Bairro:</label>
-                        <input type="text" class="form-control" id="bairro">
+                        <input type="text" class="form-control" id="bairro" placeholder="Bairro">
                     </div>
                     <div class="form-group">
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" class="form-control" id="cidade">
+                        <input type="text" class="form-control" id="cidade" placeholder="Cidade">
                     </div>
                     <div class="form-group">
-                        <label for="uf">UF:</label>
-                        <input type="text" class="form-control" id="uf">
+                        <input type="text" class="form-control" id="uf" placeholder="UF">
                     </div>
                     <div class="form-group">
-                        <label for="tipo-endereco">Tipo de Endereço:</label><br>
+                        <label for="tipo-cliente">Tipo de Cliente:</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipo-endereco" id="padrao"
-                                value="padrao">
+                            <input class="form-check-input" type="radio" name="tipo-cliente" id="padrao" value="padrao">
                             <label class="form-check-label" for="padrao">Padrão</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipo-endereco" id="preferencial"
+                            <input class="form-check-input" type="radio" name="tipo-cliente" id="preferencial"
                                 value="preferencial">
                             <label class="form-check-label" for="preferencial">Preferencial</label>
                         </div>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" class="btn btn-secondary">Buscar</button>
+                        <div class="input-group mb-3">
+                            <label for="busca-id" class="sr-only">Buscar por ID</label>
+                            <input type="text" class="form-control" id="busca-id" placeholder="Buscar por ID">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label for="busca-email" class="sr-only">Buscar por Email</label>
+                            <input type="text" class="form-control" id="busca-email" placeholder="Buscar por Email">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
